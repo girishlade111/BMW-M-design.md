@@ -309,10 +309,13 @@
   </style>
 </head>
 <body>
-  <!-- Mobile Nav -->
-  <div class="mobile-nav" id="mobileNav">
-    <div class="m-stripe-divider"><span></span><span></span><span></span></div>
-    <button class="close-btn" onclick="toggleNav()">✕</button>
+  <!-- Skip Navigation Link for Accessibility -->
+  <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;z-index:999;padding:8px 16px;background:#fff;color:#000;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;">Skip to main content</a>
+
+  <!-- Mobile Full-Screen Navigation Overlay -->
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Mobile navigation menu">
+    <div class="m-stripe-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+    <button class="close-btn" onclick="toggleNav()" aria-label="Close navigation menu">✕</button>
     <a href="#" onclick="toggleNav()">Models</a>
     <a href="#" onclick="toggleNav()">Topics</a>
     <a href="#" onclick="toggleNav()">Magazine</a>
@@ -321,160 +324,164 @@
   </div>
 
   <!-- Top Navigation -->
-  <nav class="top-nav">
+  <nav class="top-nav" aria-label="Main navigation">
     <div class="container">
-      <div class="nav-logo">
-        <div class="m-stripe-logo"><span></span><span></span><span></span></div>
-        <div class="bmw-roundel"></div>
+      <a href="/" class="nav-logo" aria-label="BMW M home">
+        <div class="m-stripe-logo" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="bmw-roundel" aria-hidden="true"></div>
         <span class="m-wordmark">M</span>
-      </div>
-      <div class="nav-links">
-        <a href="#">Models</a>
-        <a href="#">Topics</a>
-        <a href="#">Magazine</a>
-        <a href="#">Configurator</a>
-        <a href="#">Fastlane</a>
+      </a>
+      <div class="nav-links" role="menubar">
+        <a href="#" role="menuitem">Models</a>
+        <a href="#" role="menuitem">Topics</a>
+        <a href="#" role="menuitem">Magazine</a>
+        <a href="#" role="menuitem">Configurator</a>
+        <a href="#" role="menuitem">Fastlane</a>
       </div>
       <div class="nav-right">
-        <button title="Language">🌐</button>
-        <button title="Search">🔍</button>
-        <button title="Account">👤</button>
-        <button class="hamburger" onclick="toggleNav()">☰</button>
+        <button title="Language" aria-label="Select language">🌐</button>
+        <button title="Search" aria-label="Search BMW M">🔍</button>
+        <button title="Account" aria-label="My account">👤</button>
+        <button class="hamburger" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">☰</button>
       </div>
     </div>
   </nav>
 
   <!-- Hero Photo Band -->
-  <section class="hero-photo-band">
-    <img class="hero-bg" src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=1600&q=80" alt="BMW M car on track" loading="lazy">
-    <div class="hero-overlay">
-      <div class="hero-content">
-        <p class="eyebrow">The M Brand</p>
-        <h1>The Ultimate<br>Driving Machine</h1>
-        <p class="subtitle">Where motorsport engineering meets the open road. Every M model is born on the racetrack and built for the extraordinary.</p>
-        <div class="btn-group">
-          <a href="#" class="btn-primary">Explore Models</a>
-          <a href="#" class="btn-primary-outline">Build Your M</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- M Stripe Divider -->
-  <div class="m-stripe-divider"><span></span><span></span><span></span></div>
-
-  <!-- Models Section -->
-  <section class="section section-dark">
-    <div class="container">
-      <div class="section-header">
-        <p class="label">The Lineup</p>
-        <h2>More New M Models</h2>
-      </div>
-      <div class="model-grid">
-        <div class="model-card">
-          <img class="model-img" src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80" alt="BMW M3" loading="lazy">
-          <div class="model-info">
-            <h3>M3 Sedan</h3>
-            <p class="specs">503 hp · 0–100 in 3.8s · 6‑MT / 8‑AT</p>
-            <a href="#" class="text-link">Explore This Model</a>
-          </div>
-        </div>
-        <div class="model-card">
-          <img class="model-img" src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=600&q=80" alt="BMW M4" loading="lazy">
-          <div class="model-info">
-            <h3>M4 Coupe</h3>
-            <p class="specs">503 hp · 0–100 in 3.7s · 8‑AT</p>
-            <a href="#" class="text-link">Explore This Model</a>
-          </div>
-        </div>
-        <div class="model-card">
-          <img class="model-img" src="https://images.unsplash.com/photo-1610017604477-4b6106a64b69?w=600&q=80" alt="BMW M5" loading="lazy">
-          <div class="model-info">
-            <h3>M5 Competition</h3>
-            <p class="specs">617 hp · 0–100 in 3.2s · M xDrive</p>
-            <a href="#" class="text-link">Explore This Model</a>
+  <main id="main-content">
+    <section class="hero-photo-band" aria-label="Hero: BMW M The Ultimate Driving Machine">
+      <img class="hero-bg" src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=1600&q=80" alt="BMW M high-performance sports car cornering on a racetrack at speed with dramatic lighting" fetchpriority="high">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <p class="eyebrow">The M Brand</p>
+          <h1>The Ultimate<br>Driving Machine</h1>
+          <p class="subtitle">Where motorsport engineering meets the open road. Every M model is born on the racetrack and built for the extraordinary.</p>
+          <div class="btn-group">
+            <a href="#" class="btn-primary" aria-label="Explore all BMW M models">Explore Models</a>
+            <a href="#" class="btn-primary-outline" aria-label="Build your own BMW M vehicle">Build Your M</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- M Stripe Divider -->
-  <div class="m-stripe-divider"><span></span><span></span><span></span></div>
+    <!-- M Stripe Divider -->
+    <div class="m-stripe-divider" role="separator" aria-hidden="true"><span></span><span></span><span></span></div>
 
-  <!-- Magazine Section -->
-  <section class="section section-dark">
-    <div class="container">
-      <div class="section-header">
-        <p class="label">Editorial</p>
-        <h2>More from BMW M Magazine</h2>
+    <!-- Models Section -->
+    <section class="section section-dark" aria-label="BMW M model lineup">
+      <div class="container">
+        <div class="section-header">
+          <p class="label">The Lineup</p>
+          <h2>More New M Models</h2>
+        </div>
+        <div class="model-grid">
+          <article class="model-card" itemscope itemtype="https://schema.org/Product">
+            <img class="model-img" src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80" alt="BMW M3 Sedan in front view showing aggressive front grille and carbon fiber details" loading="lazy" itemprop="image">
+            <div class="model-info">
+              <h3 itemprop="name">M3 Sedan</h3>
+              <meta itemprop="brand" content="BMW M">
+              <p class="specs" itemprop="description">503 hp · 0–100 in 3.8s · 6‑MT / 8‑AT</p>
+              <a href="#" class="text-link" aria-label="Explore BMW M3 Sedan details">Explore This Model</a>
+            </div>
+          </article>
+          <article class="model-card" itemscope itemtype="https://schema.org/Product">
+            <img class="model-img" src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=600&q=80" alt="BMW M4 Coupe in dynamic driving shot on track" loading="lazy" itemprop="image">
+            <div class="model-info">
+              <h3 itemprop="name">M4 Coupe</h3>
+              <meta itemprop="brand" content="BMW M">
+              <p class="specs" itemprop="description">503 hp · 0–100 in 3.7s · 8‑AT</p>
+              <a href="#" class="text-link" aria-label="Explore BMW M4 Coupe details">Explore This Model</a>
+            </div>
+          </article>
+          <article class="model-card" itemscope itemtype="https://schema.org/Product">
+            <img class="model-img" src="https://images.unsplash.com/photo-1610017604477-4b6106a64b69?w=600&q=80" alt="BMW M5 Competition luxury performance sedan on mountain road" loading="lazy" itemprop="image">
+            <div class="model-info">
+              <h3 itemprop="name">M5 Competition</h3>
+              <meta itemprop="brand" content="BMW M">
+              <p class="specs" itemprop="description">617 hp · 0–100 in 3.2s · M xDrive</p>
+              <a href="#" class="text-link" aria-label="Explore BMW M5 Competition details">Explore This Model</a>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="category-tabs">
-        <button class="category-tab active">All</button>
-        <button class="category-tab">Magazine</button>
-        <button class="category-tab">Models</button>
-        <button class="category-tab">Lifestyle</button>
-        <button class="category-tab">Motorsport</button>
+    </section>
+
+    <!-- M Stripe Divider -->
+    <div class="m-stripe-divider" role="separator" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <!-- Magazine Section -->
+    <section class="section section-dark" aria-label="BMW M Magazine editorial articles">
+      <div class="container">
+        <div class="section-header">
+          <p class="label">Editorial</p>
+          <h2>More from BMW M Magazine</h2>
+        </div>
+        <div class="category-tabs" role="tablist" aria-label="Filter magazine articles by category">
+          <button class="category-tab active" role="tab" aria-selected="true">All</button>
+          <button class="category-tab" role="tab" aria-selected="false">Magazine</button>
+          <button class="category-tab" role="tab" aria-selected="false">Models</button>
+          <button class="category-tab" role="tab" aria-selected="false">Lifestyle</button>
+          <button class="category-tab" role="tab" aria-selected="false">Motorsport</button>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <img class="feature-img" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80" alt="BMW M4 GT3 race car on track during endurance championship" loading="lazy">
+            <div class="feature-body">
+              <p class="category-tag">Motorsport</p>
+              <h3>Inside the M4 GT3: Engineering for Victory</h3>
+              <p>From the Nürburgring to Daytona — an exclusive look at the race‑bred technology powering BMW M's endurance championship contender.</p>
+            </div>
+          </article>
+          <article class="feature-card">
+            <img class="feature-img" src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=80" alt="BMW M carbon fiber interior trim and steering wheel details" loading="lazy">
+            <div class="feature-body">
+              <p class="category-tag">Lifestyle</p>
+              <h3>M Carbon Heritage: The Art of Weight Saving</h3>
+              <p>How BMW M's carbon‑fiber expertise shapes everything from chassis rigidity to the signature roof — and what it means for the drive.</p>
+            </div>
+          </article>
+          <article class="feature-card">
+            <img class="feature-img" src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=600&q=80" alt="BMW M performance electric vehicle prototype cockpit and display" loading="lazy">
+            <div class="feature-body">
+              <p class="category-tag">Models</p>
+              <h3>First Drive: The All‑Electric M Performance</h3>
+              <p>BMW M enters the electric era with quad‑motor torque vectoring, M xDrive, and a soundtrack engineered by Hans Zimmer — driven in prototype form.</p>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <img class="feature-img" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80" alt="BMW M on track" loading="lazy">
-          <div class="feature-body">
-            <p class="category-tag">Motorsport</p>
-            <h3>Inside the M4 GT3: Engineering for Victory</h3>
-            <p>From the Nürburgring to Daytona — an exclusive look at the race‑bred technology powering BMW M's endurance championship contender.</p>
+    </section>
+
+    <!-- M Stripe Divider -->
+    <div class="m-stripe-divider" role="separator" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <!-- Spec Section -->
+    <section class="section section-card-bg" aria-label="BMW M performance technical specifications">
+      <div class="container">
+        <div class="section-header">
+          <p class="label">Technical Data</p>
+          <h2>M Performance Specs</h2>
+        </div>
+        <div class="spec-grid">
+          <div class="spec-cell">
+            <p class="spec-value">3.2s</p>
+            <p class="spec-label">0–100 km/h</p>
+          </div>
+          <div class="spec-cell">
+            <p class="spec-value">617 hp</p>
+            <p class="spec-label">Max Power</p>
+          </div>
+          <div class="spec-cell">
+            <p class="spec-value">305 km/h</p>
+            <p class="spec-label">Top Speed</p>
+          </div>
+          <div class="spec-cell">
+            <p class="spec-value">553 lb·ft</p>
+            <p class="spec-label">Peak Torque</p>
           </div>
         </div>
-        <div class="feature-card">
-          <img class="feature-img" src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=80" alt="BMW M interior" loading="lazy">
-          <div class="feature-body">
-            <p class="category-tag">Lifestyle</p>
-            <h3>M Carbon Heritage: The Art of Weight Saving</h3>
-            <p>How BMW M's carbon‑fiber expertise shapes everything from chassis rigidity to the signature roof — and what it means for the drive.</p>
-          </div>
-        </div>
-        <div class="feature-card">
-          <img class="feature-img" src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=600&q=80" alt="BMW M cockpit" loading="lazy">
-          <div class="feature-body">
-            <p class="category-tag">Models</p>
-            <h3>First Drive: The All‑Electric M Performance</h3>
-            <p>BMW M enters the electric era with quad‑motor torque vectoring, M xDrive, and a soundtrack engineered by Hans Zimmer — driven in prototype form.</p>
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- M Stripe Divider -->
-  <div class="m-stripe-divider"><span></span><span></span><span></span></div>
-
-  <!-- Spec Section -->
-  <section class="section section-card-bg">
-    <div class="container">
-      <div class="section-header">
-        <p class="label">Technical Data</p>
-        <h2>M Performance Specs</h2>
-      </div>
-      <div class="spec-grid">
-        <div class="spec-cell">
-          <p class="spec-value">3.2s</p>
-          <p class="spec-label">0–100 km/h</p>
-        </div>
-        <div class="spec-cell">
-          <p class="spec-value">617 hp</p>
-          <p class="spec-label">Max Power</p>
-        </div>
-        <div class="spec-cell">
-          <p class="spec-value">305 km/h</p>
-          <p class="spec-label">Top Speed</p>
-        </div>
-        <div class="spec-cell">
-          <p class="spec-value">553 lb·ft</p>
-          <p class="spec-label">Peak Torque</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
   <!-- M Stripe Divider -->
   <div class="m-stripe-divider"><span></span><span></span><span></span></div>
