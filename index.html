@@ -257,8 +257,9 @@
     .cookie-consent {
       position: fixed; bottom: 24px; right: 24px; z-index: 200;
       background-color: #000; border: 1px solid #3c3c3c; border-radius: 0;
-      padding: 24px; max-width: 360px;
+      padding: 24px; max-width: 360px; transition: border-color 0.2s;
     }
+    .cookie-consent:hover { border-color: #555; }
     .cookie-consent p { font-size: 14px; font-weight: 300; line-height: 1.5; color: #bbb; margin-bottom: 16px; }
     .cookie-consent .btn-group { display: flex; flex-direction: column; gap: 8px; }
     .cookie-consent .btn-group .btn-primary { width: 100%; }
