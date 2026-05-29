@@ -487,16 +487,17 @@
   <div class="m-stripe-divider"><span></span><span></span><span></span></div>
 
   <!-- CTA Band -->
-  <section class="cta-band-photo">
-    <img class="cta-bg" src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1600&q=80" alt="BMW M driving on track" loading="lazy">
+  <section class="cta-band-photo" aria-label="Call to action: schedule a BMW M test drive">
+    <img class="cta-bg" src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1600&q=80" alt="BMW M car driving aggressively on a racetrack corner" loading="lazy">
     <div class="cta-overlay">
       <h2>Experience the M Difference.<br>Schedule Your Test Drive.</h2>
-      <a href="#" class="btn-primary-outline">Find a Dealer</a>
+      <a href="#" class="btn-primary-outline" aria-label="Find a BMW M dealer near you">Find a Dealer</a>
     </div>
   </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" aria-label="Site footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
@@ -557,7 +558,7 @@
   </footer>
 
   <!-- Cookie Consent -->
-  <div class="cookie-consent" id="cookieConsent">
+  <div class="cookie-consent" id="cookieConsent" role="dialog" aria-label="Cookie consent notice" aria-modal="false">
     <p>BMW M uses cookies to provide you with the best possible experience. By continuing to browse this site, you agree to our use of cookies.</p>
     <div class="btn-group">
       <button class="btn-primary" onclick="acceptCookies()">Accept Cookies</button>
@@ -566,24 +567,41 @@
   </div>
 
   <!-- Chatbot Launcher -->
-  <div class="chatbot-launcher" id="chatbotLauncher">
+  <div class="chatbot-launcher" id="chatbotLauncher" role="button" tabindex="0" aria-label="Open BMW M chatbot">
     <h3>BMW M Chatbot</h3>
     <p>Have questions about M models, specs, or performance? Ask our virtual assistant.</p>
-    <button class="btn-primary" style="width:100%;">Launch Chat</button>
+    <button class="btn-primary" style="width:100%;" aria-label="Launch BMW M chatbot assistant">Launch Chat</button>
   </div>
 
   <script>
     function toggleNav() {
-      document.getElementById('mobileNav').classList.toggle('open');
+      const nav = document.getElementById('mobileNav');
+      const hamburger = document.querySelector('.hamburger');
+      const isOpen = nav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
     }
     function acceptCookies() {
       document.getElementById('cookieConsent').style.display = 'none';
     }
+
     document.querySelectorAll('.category-tab').forEach(tab => {
       tab.addEventListener('click', function() {
-        document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.category-tab').forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
         this.classList.add('active');
+        this.setAttribute('aria-selected', 'true');
       });
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const mobileNav = document.getElementById('mobileNav');
+        if (mobileNav.classList.contains('open')) {
+          toggleNav();
+        }
+      }
     });
   </script>
 </body>
