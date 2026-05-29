@@ -1,0 +1,8 @@
+# robots.txt for BMW M
+# Allow all crawlers full access
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://bmwm.example.com/sitemap.xml
