@@ -208,8 +208,10 @@
 
     /* Feature Photo Cards (magazine) */
     .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .feature-card { background-color: #1a1a1a; border-radius: 0; overflow: hidden; }
-    .feature-card .feature-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background-color: #000; }
+    .feature-card { background-color: #1a1a1a; border-radius: 0; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 0 0 1px #3c3c3c; }
+    .feature-card .feature-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background-color: #000; transition: transform 0.4s ease; }
+    .feature-card:hover .feature-img { transform: scale(1.06); }
     .feature-card .feature-body { padding: 24px; }
     .feature-card .feature-body .category-tag { font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #bbb; margin-bottom: 8px; }
     .feature-card .feature-body h3 { font-size: 24px; font-weight: 700; line-height: 1.3; color: #fff; margin-bottom: 8px; }
