@@ -219,7 +219,8 @@
 
     /* Spec Cells */
     .spec-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    .spec-cell { background-color: #0d0d0d; border-radius: 0; padding: 24px; }
+    .spec-cell { background-color: #0d0d0d; border-radius: 0; padding: 24px; transition: background-color 0.25s ease; cursor: default; }
+    .spec-cell:hover { background-color: #1a1a1a; }
     .spec-cell .spec-value { font-family: 'Saira Condensed', 'Inter', sans-serif; font-size: 32px; font-weight: 700; line-height: 1.15; color: #fff; letter-spacing: -0.5px; margin-bottom: 8px; }
     .spec-cell .spec-label { font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #bbb; }
 
