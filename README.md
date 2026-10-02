@@ -356,3 +356,7 @@ The M tricolor stripe is **exclusively a brand-identity marker**. It appears onl
 ## License
 
 Design system © BMW AG. This implementation is a demonstration project based on publicly available brand guidelines. The BMW M wordmark, M tricolor, and BMW roundel are registered trademarks of BMW AG. Not affiliated with or endorsed by BMW AG.
+
+---
+
+**Built by Girish Lade** — [ladestack.in](https://ladestack.in)
